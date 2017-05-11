@@ -16,6 +16,8 @@ Import-Package: com.mysql.jdbc;version="5.1.35",
  com.mysql.jdbc.log;version="5.1.35",
  com.mysql.jdbc.profiler;version="5.1.35",
  com.mysql.jdbc.util;version="5.1.35",
+ junit.framework;version="4.12.0",
+ org.junit;version="4.12.0",
  org.osgi.framework;version="1.3.0"
 Export-Package: com.javaworld.sample.helloservice
 
