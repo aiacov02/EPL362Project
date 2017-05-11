@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Epl362
+Bundle-SymbolicName: com.Team5.epl362
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.team5.epl362.Activator
+Bundle-Vendor: TEAM5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: com.javaworld.sample.helloservice,
+ org.osgi.framework;version="1.3.0"
