@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.javaworld.sample.helloservice.HelloService;
+import com.team5.epl362.writetofileservice.ReceptionistFile;
+
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
@@ -29,8 +31,10 @@ public class PatientsView {
 	
 	public HelloService helloservice1;
 	private JTextField textField_1;
+	private ReceptionistFile receptionistFile;
 
-	public PatientsView(HelloService helloservice1){
+	public PatientsView(HelloService helloservice1, ReceptionistFile receptionistFile){
+		this.receptionistFile = receptionistFile;
 		this.helloservice1 = helloservice1;
 		initialize();
 	}
@@ -62,7 +66,7 @@ public class PatientsView {
     	public void actionPerformed(ActionEvent e) {
     		frame.setVisible(false);
     		
-    		searchres windoww = new searchres(helloservice1,textField.getText());
+    		searchres windoww = new searchres(helloservice1,textField.getText(), receptionistFile);
 //    		windoww.frame.setVisible(true);	
     		
     		
@@ -75,7 +79,7 @@ public class PatientsView {
     btnBack.addActionListener(new ActionListener() {
     	public void actionPerformed(ActionEvent e) {
     		frame.setVisible(false);
-    		number1 windoww = new number1(helloservice1);
+    		number1 windoww = new number1(helloservice1, receptionistFile);
     		windoww.frame.setVisible(true);	
     	}
     });

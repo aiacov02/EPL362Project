@@ -11,6 +11,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.table.DefaultTableModel;
 
 import com.javaworld.sample.helloservice.HelloService;
+import com.team5.epl362.writetofileservice.ReceptionistFile;
 
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -24,6 +25,7 @@ public class searchres {
 	 private JTable table;
 	 public HelloService helloservice1;
 	 private String pattern;
+	 private ReceptionistFile receptionistFile;
 
 	/**
 	 * Launch the application.
@@ -41,7 +43,7 @@ public class searchres {
 		    btnBack.addActionListener(new ActionListener() {
 		    	public void actionPerformed(ActionEvent e) {
 		    		frame.setVisible(false);
-		    		PatientsView windoww = new PatientsView(helloservice1);
+		    		PatientsView windoww = new PatientsView(helloservice1, receptionistFile);
 		    		//windoww.frame.setVisible(true);	
 		    	}
 		    });
@@ -95,7 +97,8 @@ public class searchres {
 	/**
 	 * Create the application.
 	 */
-	public searchres(HelloService helloservice1,String pattern) {
+	public searchres(HelloService helloservice1,String pattern, ReceptionistFile receptionistFile) {
+		this.receptionistFile = receptionistFile;
 		this.helloservice1 = helloservice1;
 		this.pattern = pattern;
 		initialize();

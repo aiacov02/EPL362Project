@@ -12,6 +12,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.table.DefaultTableModel;
 
 import com.javaworld.sample.helloservice.HelloService;
+import com.team5.epl362.writetofileservice.ReceptionistFile;
 
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -29,7 +30,8 @@ public class apoint {
 	 private JTextField textField;
 	 private JTextField textField_1;
 	 
-	 HelloService helloservice1;
+	 private HelloService helloservice1;
+	 private ReceptionistFile receptionistFile;
 
 	/**
 	 * Launch the application.
@@ -47,7 +49,7 @@ public class apoint {
 		    btnBack.addActionListener(new ActionListener() {
 		    	public void actionPerformed(ActionEvent e) {
 		    		frame.setVisible(false);
-		    		number1 n = new number1(helloservice1);
+		    		number1 n = new number1(helloservice1, receptionistFile);
 		    		n.frame.setVisible(true);
 		    	}
 		    });
@@ -67,7 +69,7 @@ public class apoint {
 		    	public void actionPerformed(ActionEvent e) {
 		    		helloservice1.checkIfPatientWent(Integer.parseInt(textField.getText()), textField_1.getText());
 		    		frame.setVisible(false);
-		    		apoint ap = new apoint(helloservice1);
+		    		apoint ap = new apoint(helloservice1, receptionistFile);
 		    	}
 		    });
 		    
@@ -145,8 +147,10 @@ public class apoint {
 
 	/**
 	 * Create the application.
+	 * @param receptionistFile 
 	 */
-	public apoint(HelloService helloservice1) {
+	public apoint(HelloService helloservice1, ReceptionistFile receptionistFile) {
+		this.receptionistFile = receptionistFile;
 		this.helloservice1 = helloservice1;
 		initialize();
 	}

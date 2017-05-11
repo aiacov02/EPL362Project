@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.javaworld.sample.helloservice.HelloService;
+import com.team5.epl362.writetofileservice.ReceptionistFile;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -34,6 +35,7 @@ public class number2 {
 	 private JTextField textField_2;
 
 	 public HelloService helloservice1;
+	 private ReceptionistFile receptionistFile;
 	 
 	/**
 	 * Launch the application.
@@ -53,8 +55,10 @@ public class number2 {
 
 	/**
 	 * Create the application.
+	 * @param receptionistFile 
 	 */
-	public number2(HelloService helloservice1) {
+	public number2(HelloService helloservice1, ReceptionistFile receptionistFile) {
+		this.receptionistFile = receptionistFile;
 		this.helloservice1 = helloservice1;
 		initialize();
 	}
@@ -131,10 +135,10 @@ public class number2 {
 				}
 				//helloservice1.insertPatient(Name, Surname, DOB, Sex, Telephone, Address, Suicide)
 				helloservice1.insertPatient(textField.getText(),textField_1.getText(),textField_2.getText(), bg.getSelection().getActionCommand(), textField_3.getText(), textField_4.getText(), true);
-                
+                receptionistFile.printFile(textField.getText(), textField_1.getText(), textField_2.getText(),  textField_4.getText(), textField_3.getText(), bg.getSelection().getActionCommand());
 				JOptionPane.showMessageDialog (null, "Η προσθήκη έγινε με επιτυχία", "Title", JOptionPane.INFORMATION_MESSAGE);
                 frame.setVisible(false);
-				number1 windoww = new number1(helloservice1);
+				number1 windoww = new number1(helloservice1, receptionistFile);
 				windoww.frame.setVisible(true);	
                 //PatientsView p = new PatientsView(helloservice1);
                 //p.frame.setVisible(true);
@@ -151,7 +155,7 @@ public class number2 {
 			public void actionPerformed(ActionEvent e) {
 				
 				 frame.setVisible(false);
-					number1 windoww = new number1(helloservice1);
+					number1 windoww = new number1(helloservice1, receptionistFile);
 					windoww.frame.setVisible(true);	
 				
 				

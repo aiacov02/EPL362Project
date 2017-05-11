@@ -12,11 +12,13 @@ import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 
 import com.javaworld.sample.helloservice.HelloService;
+import com.team5.epl362.writetofileservice.ReceptionistFile;
 
 public class number1 {
 
 	public JFrame frame;
 	public HelloService helloservice1;
+	private ReceptionistFile receptionistFile;
 
 	/**
 	 * Launch the application.
@@ -36,8 +38,10 @@ public class number1 {
 
 	/**
 	 * Create the application.
+	 * @param receptionistFile 
 	 */
-	public number1(HelloService helloservice1) {
+	public number1(HelloService helloservice1, ReceptionistFile receptionistFile) {
+		this.receptionistFile = receptionistFile;
 		this.helloservice1 = helloservice1;
 		initialize();
 	}
@@ -54,7 +58,7 @@ public class number1 {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.setVisible(false);
-				number2 windoww = new number2(helloservice1);
+				number2 windoww = new number2(helloservice1, receptionistFile);
 				windoww.frame.setVisible(true);	
 					
 
@@ -66,7 +70,7 @@ public class number1 {
 			public void actionPerformed(ActionEvent e) {
 				
 				frame.setVisible(false);
-				Createappointment windoww = new Createappointment(helloservice1);
+				Createappointment windoww = new Createappointment(helloservice1, receptionistFile);
 				windoww.frame.setVisible(true);	
 				
 			}
@@ -75,7 +79,7 @@ public class number1 {
 		JButton btnNewButton_1 = new JButton("Ασθενείς");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PatientsView p = new PatientsView(helloservice1);
+				PatientsView p = new PatientsView(helloservice1, receptionistFile);
 				frame.setVisible(false);
 				//p.frame.setVisible(true);
 			}
@@ -85,7 +89,7 @@ public class number1 {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				apoint appointments = new apoint(helloservice1);
+				apoint appointments = new apoint(helloservice1, receptionistFile);
 			}
 		});
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());

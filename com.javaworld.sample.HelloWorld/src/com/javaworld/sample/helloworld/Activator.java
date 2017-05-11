@@ -8,6 +8,7 @@ import org.osgi.framework.ServiceReference;
 
 import com.javaworld.sample.helloservice.HelloService;
 import com.javaworld.sample.helloservice.HelloServiceImpl;
+import com.team5.epl362.writetofileservice.ReceptionistFile;
 
 public class Activator implements BundleActivator {
 
@@ -17,13 +18,18 @@ public class Activator implements BundleActivator {
 	 */
 	  
 	ServiceReference helloServiceReference1;
+	ServiceReference receptionistFileReference;
 	
 
     public void start(BundleContext context) throws Exception {
        
         helloServiceReference1= context.getServiceReference(HelloService.class.getName());
         HelloService helloService1 =(HelloService)context.getService(helloServiceReference1);
-        number1 n = new number1(helloService1);
+        
+        receptionistFileReference= context.getServiceReference(ReceptionistFile.class.getName());
+        ReceptionistFile receptionistFile =(ReceptionistFile)context.getService(receptionistFileReference);
+        
+        number1 n = new number1(helloService1, receptionistFile);
         n.frame.setVisible(true);
         //System.out.println(helloService1.SayHello());
         

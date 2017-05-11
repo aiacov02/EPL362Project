@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import com.javaworld.sample.helloservice.HelloService;
+import com.team5.epl362.writetofileservice.ReceptionistFile;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -25,6 +26,7 @@ public class Createappointment {
 
 	public HelloService helloservice1;
 	private JTextField textField_1;
+	private ReceptionistFile receptionistFile;
 	
 	/**
 	 * Launch the application.
@@ -44,8 +46,10 @@ public class Createappointment {
 
 	/**
 	 * Create the application.
+	 * @param receptionistFile 
 	 */
-	public Createappointment(HelloService helloservice1) {
+	public Createappointment(HelloService helloservice1, ReceptionistFile receptionistFile) {
+		this.receptionistFile = receptionistFile;
 		this.helloservice1 = helloservice1;
 		initialize();
 	}
@@ -85,7 +89,7 @@ public class Createappointment {
 				JOptionPane.showMessageDialog (null, "Το ραντεβού έχει καταχωρηθεί", "Title", JOptionPane.INFORMATION_MESSAGE);
                 frame.setVisible(false);
                 helloservice1.insertAppointment(Integer.parseInt(textField.getText()), textField_3.getText(), Integer.parseInt(textField_4.getText()),Integer.parseInt(textField_1.getText()));
-				number1 windoww = new number1(helloservice1);
+				number1 windoww = new number1(helloservice1, receptionistFile);
 				windoww.frame.setVisible(true);	
 				
 				
@@ -97,7 +101,7 @@ public class Createappointment {
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				  frame.setVisible(false);
-					number1 windoww = new number1(helloservice1);
+					number1 windoww = new number1(helloservice1, receptionistFile);
 					windoww.frame.setVisible(true);	
 				
 				
