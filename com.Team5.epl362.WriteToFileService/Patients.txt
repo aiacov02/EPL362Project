@@ -1,0 +1,18 @@
+Name:         Kostas
+Surnname:     Malekkos
+Birthday:     1980-10-10
+Adress:       9920
+Phone Number: Makd01
+Gender:       M
+
+------------------------------------------------------------
+
+Name:         Panais
+Surnname:     Kotetsos
+Birthday:     2000-10-10
+Adress:       91
+Phone Number: sdflkj
+Gender:       M
+
+------------------------------------------------------------
+
